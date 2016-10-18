@@ -26,8 +26,8 @@
         <div class="jumbotron">
             <div class="container">
                 <h1>{{ greeting }}</h1>
-                <p>This is a GIF search engine aims at enlighting your life by exloring every-day happiness.</p>
-                <form action="/results" class="form-inline">
+                <p>This is a GIF search engine which aims at enlighting your life by exloring every-day happiness.</p>
+                <form action="/results" class="form-inline" onsubmit="return validate(this)">
                     <div class="form-group">
                         <input type="text" name="keywords" placeholder="Key to Happiness" class="form-control">
                     </div>
@@ -63,9 +63,19 @@
             <!-- Footer -->
             <hr>
             <footer>
-                <p>© Happy Consultant GIFs 2016</p>
+                <p>© Company 2016</p>
             </footer>
 
         </div>
     </body>
+    <script>
+        function validate(form) {
+            var keywords = form.keywords.value.replace(/(^\s*)|(\s*$)/g, ''); ;
+            if(!keywords) {
+                alert('Opps, please enter your keywords');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </html>
