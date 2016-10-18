@@ -25,12 +25,22 @@
         <!-- Jumbotron -->
         <div class="jumbotron">
             <div class="container">
-                <h1>{{ price }}</h1>
+                <h1>GIFs tagged with "cats"</h1>
+                <a href="/">Back to search</a>
             </div>
         </div>
 
+        <!-- GIF Search Results -->
         <div class="container">
-            
+            <div class="card-columns">
+                {% for result in results %}
+                    <div class="card">
+                        <a href="{{result.url}}" target="_blank" title="{{result.title}}">
+                            <img class="card-img-top" src="{{result.media_url}}" style="width:100%; height:auto;">
+                        </a>
+                    </div>
+                {% endfor %}
+
             <!-- Footer -->
             <hr>
             <footer>
@@ -40,3 +50,16 @@
         </div>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
